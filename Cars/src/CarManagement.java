@@ -62,14 +62,14 @@ public class CarManagement {
 	
 	public list<Car> SearchByprice(double lowrange, double highrange){
 		//To do Implement this method 
-	
+	 
 	}
 	
 	
 /* Implement all the other methods you can think of 
  * please. its upto you if you want you can change my methods as well
  * 
- * 
+ * Please add few  methods
  * 
  * 
  */
