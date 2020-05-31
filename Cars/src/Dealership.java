@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 public class Dealership extends JFrame {
  
  private JLabel head;	
+ private JLabel msg;
+ private JButton colorS;
+ private JButton modelS;
  public Dealership()
  {
 	 setTitle("Car DealerShip");
@@ -30,10 +33,12 @@ public class Dealership extends JFrame {
 	add(panelRight, BorderLayout.EAST);
 	panelRight.add(new JButton("Login"));
 
-	JButton colorS = new JButton("Search By Color");
-
-	JButton modelS = new JButton("Search By Model");
-	JLabel  msg = new JLabel("Searching by: ");
+	msg = new JLabel("");
+	 
+	colorS = new JButton("Search By Color");
+    colorS.addActionListener(new ButtonListener());
+	modelS = new JButton("Search By Model");
+	modelS.addActionListener(new ButtonListener());
 	//panel
 	panel.add(colorS);
 	panel.add(modelS);
@@ -45,4 +50,26 @@ public class Dealership extends JFrame {
 
 	 
  }
+ 
+	private class ButtonListener implements ActionListener {
+		
+		
+		public void actionPerformed(ActionEvent event) {
+			
+			JButton jb = (JButton) event.getSource();
+			if(jb.equals(colorS))
+			{	
+				msg.setText("Searching By Color");
+			}
+			else if (jb.equals(modelS))
+			{	
+				msg.setText("Searching By Model");
+			}
+		}
+		
+		
+	}
+			
+			
+		
 }
