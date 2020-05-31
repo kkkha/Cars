@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class CarManagement {
@@ -60,7 +61,8 @@ public class CarManagement {
 		  
 	}
 	
-	public list<Car> SearchByprice(double lowrange, double highrange){
+	public List<Car> SearchByprice(double lowrange, double highrange){
+		return carslist;
 		//To do Implement this method 
 	 
 	}
