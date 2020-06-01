@@ -141,6 +141,10 @@ public class CarArray {
 			start++;
 		}
 	}
+	
+	public int size() {
+		return carslist.size();
+	}
 
 
 }

@@ -45,7 +45,7 @@ public class Dealership extends JFrame {
 	panel.add(msg);
 	colorS.setBounds(50,20,200,50);
 	modelS.setBounds(250,20,200,50);
-	msg.setBounds(450,0,100,100);
+	msg.setBounds(500,0,150,150);
  
 
 	 
