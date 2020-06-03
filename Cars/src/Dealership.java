@@ -3,6 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 public class Dealership extends JFrame {
  //tr
  private JLabel head;	
@@ -13,6 +14,9 @@ public class Dealership extends JFrame {
  private JButton viewCars;
  private JPanel displayInfo;
  private JLabel displayText;
+ private JLabel displayResults;
+ private CarArray array;
+ private LinkedList<Car> results;
  public Dealership()
  {
 	 setTitle("Car DealerShip");
@@ -37,7 +41,13 @@ public class Dealership extends JFrame {
 	JPanel panelRight = new JPanel();  
 	add(panelRight, BorderLayout.EAST);
 	panelRight.add(new JButton("Login"));
-
+	
+	
+	results = new LinkedList<Car>();
+	array = new CarArray();
+	Car car1=new Car("Mercedes", 100, "Black", 20000, 2015);
+	array.addCar(car1);
+	
 	msg = new JLabel("");
 	 
 	colorS = new JButton("Search By Color");    //Search Color Button
@@ -68,10 +78,20 @@ public class Dealership extends JFrame {
 	displayInfo.setOpaque(true);
 	displayInfo.setForeground(Color.BLUE);
 	displayInfo.setBackground(Color.WHITE);
-	
+
 	//displayInfoPanel just prints text for now 
 	displayText = new JLabel("");
 	displayInfo.add(displayText);
+	
+	
+	//display results
+	displayResults = new JLabel("H");
+	displayResults.setOpaque(true);
+	displayResults.setBackground(Color.gray);
+	panel.add(displayResults);
+//	displayResults.setLocation(400,400);
+	
+	
 	//panel
 	panel.add(colorS);
 	panel.add(modelS);
@@ -79,6 +99,7 @@ public class Dealership extends JFrame {
 	panel.add(searchBox);
 	panel.add(viewCars);
 	panel.add(displayInfo);
+
 	
 	colorS.setBounds(50,20,200,50);
 	modelS.setBounds(300,20,200,50);
@@ -86,6 +107,10 @@ public class Dealership extends JFrame {
 	searchBox.setBounds(20,100, 150,30);
 	viewCars.setBounds(180,100, 120,30);
 	displayInfo.setBounds(100,150, 500,400);
+	displayResults.setBounds(150,250, 400,300);
+
+	
+	
 	
 
  }
@@ -118,6 +143,22 @@ public class Dealership extends JFrame {
 			if(jb.equals(viewCars))
 			{
 			   input = searchBox.getText();
+			   if(msg.getText().equals("Searching By Color"))
+			   {   
+				  results = array.SearchBycolor(input);
+			   }
+			  else if(msg.getText().equals("Searching By Model"))
+			   {   
+				  Car car= array.SearchByModel(Integer.parseInt(input));
+				  results.add(car);
+			   }
+			   String text = "";
+			   LinkedList<Car> list = array.returnList();
+			   for(int i=0;i<list.size();i++)
+			   {
+				   text= text+list.get(i)+"\n";
+			   }
+			   displayResults.setText(text);
 			   displayText.setText("Showing results for: "+input);
 			}
 			
