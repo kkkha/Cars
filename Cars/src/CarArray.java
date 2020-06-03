@@ -29,29 +29,29 @@ public class CarArray {
 		return this.carslist;
 	}
 	
-	public LinkedList<Car> SearchBycolor(String color){
-		LinkedList <Car> list= new LinkedList<Car>();
+	public CarArray SearchBycolor(String color){
+		CarArray  list= new CarArray();
 		
             for(Car car: carslist) {
             	if(car.getColor().equals(color)) {
-            		list.add(car);
+            		list.addCar(car);
             	}
             }
-            if(list.isEmpty()) {
+            if(list.size()==0) {
             	throw new NoSuchElementException("There is no car with that color");
             }
             return list;
 	}
 	
-	public LinkedList<Car> SearchByName(String name){
-		LinkedList <Car> list= new LinkedList<Car>();
+	public CarArray SearchByName(String name){
+		CarArray list= new CarArray();
 		
             for(Car car: carslist) {
             	if(car.getName().equals(name)) {
-            		list.add(car);
+            		list.addCar(car);
             	}
             }
-            if(list.isEmpty()) {
+            if(list.size()==0) {
             	throw new NoSuchElementException("There is no car with that color");
             }
             return list;
@@ -69,15 +69,15 @@ public class CarArray {
 		  
 	}
 	
-	public List<Car> SearchByprice(double lowrange, double highrange){
-		List<Car> list =new LinkedList<Car>();
+	public CarArray SearchByprice(double lowrange, double highrange){
+		CarArray list =new CarArray();
 		
 		for(Car car: carslist) {
 			if(car.getPrice()>=lowrange&&car.getPrice()<=highrange) {
-				list.add(car);
+				list.addCar(car);
 			}
 		}
-		if(list.isEmpty()) {
+		if(list.size()==0) {
 			 throw new NoSuchElementException("A Car does not exist between that price range");
 		}
 		return list;
@@ -147,9 +147,18 @@ public class CarArray {
 		}
 	}
 	
+	
+	
+
+
+
 	@Override
 	public String toString() {
-		return "CarArray [carslist=" + carslist + "]";
+		String s="";
+		for(int i=0;i<carslist.size();i++) {
+			 s=s+carslist.get(i).toString()+"\n\n";
+		}
+		return s;
 	}
 
 

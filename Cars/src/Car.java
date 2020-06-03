@@ -3,6 +3,14 @@ import java.util.List;
 public class Car {
      
 	
+	@Override
+	public String toString() {
+		return "Car name = " + name + "     Price = " + price + "\n"
+			+  "Year = " + year +     "        Modelno =" + Modelno + "\n"
+			+ "Color = " + color+"\n\n" ;
+	}
+
+
 	private String name;
 	private int Modelno;
 	private String color;
