@@ -20,10 +20,14 @@ public class CarArray {
 			return;
 		}
 		carslist.add(car);
-		
+
+		sort();
 	}
 	
-	
+	public LinkedList<Car> returnList()
+	{
+		return this.carslist;
+	}
 	
 	public LinkedList<Car> SearchBycolor(String color){
 		LinkedList <Car> list= new LinkedList<Car>();
