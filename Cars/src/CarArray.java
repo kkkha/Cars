@@ -20,7 +20,7 @@ public class CarArray {
 			return;
 		}
 		carslist.add(car);
-		sort();
+		
 	}
 	
 	
@@ -136,12 +136,20 @@ public class CarArray {
 			}
 		}
 		
-		for(int i=start;i<list.size();i++) {
+		for(int i=0;i<list.size();i++) {
+			carslist2.remove(start);
 			carslist2.add(start,list.get(i));
 			start++;
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return "CarArray [carslist=" + carslist + "]";
+	}
+
+
+
 	public int size() {
 		return carslist.size();
 	}
