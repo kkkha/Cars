@@ -20,7 +20,8 @@ public class CarArray {
 			return;
 		}
 		carslist.add(car);
-//		sort();
+
+		sort();
 	}
 	
 	public LinkedList<Car> returnList()
@@ -92,11 +93,11 @@ public class CarArray {
 
 	private void MergeSort(LinkedList<Car> carslist1, int start, int end) {
 		
-		if(start>end) {
+		if(start>=end) {
 			return;
 		}
 		int mid=(start+end)/2;
-		MergeSort(carslist1,start,mid-1);
+		MergeSort(carslist1,start,mid);
 		MergeSort(carslist1,mid+1,end);
 		Merge(carslist,start,mid,end);
 		
@@ -139,14 +140,26 @@ public class CarArray {
 			}
 		}
 		
-		for(int i=start;i<list.size();i++) {
-			list.add(start,carslist2.get(i));
+		for(int i=0;i<list.size();i++) {
+			carslist2.remove(start);
+			carslist2.add(start,list.get(i));
 			start++;
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return "CarArray [carslist=" + carslist + "]";
+	}
+
+
+
 	public int size() {
 		return carslist.size();
+	}
+	
+	public Car get(int index) {
+		return carslist.get(index);
 	}
 
 
