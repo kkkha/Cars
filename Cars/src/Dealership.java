@@ -16,13 +16,13 @@ public class Dealership extends JFrame {
  private JButton modelS;
  private JTextField searchBox;
  private JButton viewCars;
- private JLabel displayInfo;
+ private JPanel displayInfo;
  private JLabel displayText;
  private JLabel displayResults;
  private CarArray carlist1;
  private CarArray results;
- JTextArea textarea=new JTextArea(" ");
- private Car car2,car3,car4,car5,car6,car8,car9,car10,car11,car12,car13,car14,car15;
+ JTextArea textarea;
+ Car car2,car3,car4,car5,car6,car8,car9,car10,car11,car12,car13,car14,car15;
  public Dealership()
  {
 	 setTitle("Car DealerShip");
@@ -89,14 +89,21 @@ public class Dealership extends JFrame {
 	viewCars.setBackground(Color.BLUE);
 	viewCars.addActionListener(new viewCarsListener());
 	
-	displayInfo = new JLabel();          //panel to displayCars
+	displayInfo = new JPanel();          //panel to displayCars
 	displayInfo.setOpaque(true);
 	displayInfo.setForeground(Color.BLUE);
 	displayInfo.setBackground(Color.WHITE);
-
+    displayInfo.setLayout(null);
 	//displayInfoPanel just prints text for now 
-	displayText = new JLabel("");
+	displayText = new JLabel("Displaying Results");
+	displayText.setBounds (200, 0,200,50);
+	textarea=new JTextArea("");
+	textarea.setBackground(Color.GRAY);
+	textarea.setBounds(100, 100, 300, 300);
 	displayInfo.add(textarea);
+	
+
+	displayInfo.add(displayText);
 	
 	
 	//display results
@@ -114,6 +121,7 @@ public class Dealership extends JFrame {
 	panel.add(searchBox);
 	panel.add(viewCars);
 	panel.add(displayInfo);
+
 	
 
 	
@@ -124,7 +132,7 @@ public class Dealership extends JFrame {
 	viewCars.setBounds(180,100, 120,30);
 	displayInfo.setBounds(100,150, 500,400);
 	//displayResults.setBounds(300,300, 300,300);
-
+   
 	
 	
 	
