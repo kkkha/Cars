@@ -21,7 +21,7 @@ public class Dealership extends JFrame {
  private JLabel displayResults;
  private CarArray carlist1;
  private CarArray results;
- JTextArea textarea=new JTextArea(" ");
+ 
  private Car car2,car3,car4,car5,car6,car8,car9,car10,car11,car12,car13,car14,car15;
  public Dealership()
  {
@@ -96,14 +96,13 @@ public class Dealership extends JFrame {
 
 	//displayInfoPanel just prints text for now 
 	displayText = new JLabel("");
-	displayInfo.add(textarea);
-	
+	//displayInfo.add(displayText);
 	
 	//display results
-	/*displayResults = new JLabel("H");
+	displayResults = new JLabel("H");
 	displayResults.setOpaque(true);
 	displayResults.setBackground(Color.gray);
-	panel.add(displayResults)*/;
+	panel.add(displayResults);
 //	displayResults.setLocation(400,400);
 	
 	
@@ -114,7 +113,6 @@ public class Dealership extends JFrame {
 	panel.add(searchBox);
 	panel.add(viewCars);
 	panel.add(displayInfo);
-	
 
 	
 	colorS.setBounds(50,20,200,50);
@@ -123,7 +121,7 @@ public class Dealership extends JFrame {
 	searchBox.setBounds(20,100, 150,30);
 	viewCars.setBounds(180,100, 120,30);
 	displayInfo.setBounds(100,150, 500,400);
-	//displayResults.setBounds(300,300, 300,300);
+	//displayResults.setBounds(100,250, 400,300);
 
 	
 	
@@ -156,21 +154,13 @@ public class Dealership extends JFrame {
 		public void actionPerformed(ActionEvent event) {
 			
 			JButton jb = (JButton) event.getSource();
-			
 			if(jb.equals(viewCars))
 			{
 			   input = searchBox.getText();
 			   if(msg.getText().equals("Searching By Color"))
-			   {   
+			   {   String f="";
 				  results = carlist1.SearchBycolor(input);
-				  String f="";
-				  for(int i=0;i<results.size();i++) {
-				f=f+ results.get(i).toString();
-				
-				  }
-				 textarea.append(f);
-				  //displayInfo.setText(f);
-				  
+				 
 			   }
 			  else if(msg.getText().equals("Searching By Model"))
 			   {   
