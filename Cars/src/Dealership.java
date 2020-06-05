@@ -16,7 +16,7 @@ public class Dealership extends JFrame {
  private JButton modelS;
  private JTextField searchBox;
  private JButton viewCars;
- private JPanel displayInfo;
+ private JLabel displayInfo;
  private JLabel displayText;
  private JLabel displayResults;
  private CarArray carlist1;
@@ -89,11 +89,11 @@ public class Dealership extends JFrame {
 	viewCars.setBackground(Color.BLUE);
 	viewCars.addActionListener(new viewCarsListener());
 	
-	displayInfo = new JPanel();          //panel to displayCars
+	displayInfo = new JPanel();        //panel to displayCars
 	displayInfo.setOpaque(true);
 	displayInfo.setForeground(Color.BLUE);
 	displayInfo.setBackground(Color.WHITE);
-    displayInfo.setLayout(null);
+	displayInfo.setLayout(null);
 	//displayInfoPanel just prints text for now 
 	displayText = new JLabel("Displaying Results");
 	displayText.setBounds (200, 0,200,50);
@@ -102,16 +102,16 @@ public class Dealership extends JFrame {
 	textarea.setBounds(100, 100, 300, 300);
 	displayInfo.add(textarea);
 	
-
-	displayInfo.add(displayText);
+	
+	displayResults = new JLabel("H");
 	
 	
 	//display results
-	/*displayResults = new JLabel("H");
-	displayResults.setOpaque(true);
+	/*displayResults.setOpaque(true);
 	displayResults.setBackground(Color.gray);
-	panel.add(displayResults)*/;
+	panel.add(displayResults);*/
 //	displayResults.setLocation(400,400);
+	
 	
 	
 	//panel
@@ -123,8 +123,6 @@ public class Dealership extends JFrame {
 	panel.add(displayInfo);
 
 	
-
-	
 	colorS.setBounds(50,20,200,50);
 	modelS.setBounds(300,20,200,50);
 	msg.setBounds(20,20,150,150);
@@ -132,7 +130,7 @@ public class Dealership extends JFrame {
 	viewCars.setBounds(180,100, 120,30);
 	displayInfo.setBounds(100,150, 500,400);
 	//displayResults.setBounds(300,300, 300,300);
-   
+
 	
 	
 	
@@ -163,6 +161,8 @@ public class Dealership extends JFrame {
 		String input;
 		public void actionPerformed(ActionEvent event) {
 			
+			
+			
 			JButton jb = (JButton) event.getSource();
 			
 			if(jb.equals(viewCars))
@@ -170,6 +170,7 @@ public class Dealership extends JFrame {
 			   input = searchBox.getText();
 			   if(msg.getText().equals("Searching By Color"))
 			   {  
+
 				   textarea.setText(""); //must clear textarea
 				  results = carlist1.SearchBycolor(input);
 				  String f=" ";
@@ -179,7 +180,16 @@ public class Dealership extends JFrame {
 				  }
 				 textarea.append(f);
 				 results.clearList();
-				  
+				  =======
+				   results = carlist1.SearchBycolor(input);
+					  String f="";
+					  for(int i=0;i<results.size();i++) {
+					f=f+ results.get(i).toString();
+					
+					  }
+					 textarea.append(f);
+					  //displayInfo.setText(f);
+					 
 			   }
 			  else if(msg.getText().equals("Searching By Model"))
 			   {   
