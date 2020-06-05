@@ -16,7 +16,7 @@ public class Dealership extends JFrame {
  private JButton modelS;
  private JTextField searchBox;
  private JButton viewCars;
- private JLabel displayInfo;
+ private JPanel displayInfo;
  private JLabel displayText;
  private JLabel displayResults;
  private CarArray carlist1;
