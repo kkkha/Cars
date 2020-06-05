@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -180,9 +179,8 @@ public class Dealership extends JFrame {
 				
 				  }
 				 textarea.append(f);
-				 results.clearList();
-			
-					 textarea.append(f);
+				 
+				 results.clearList();	 
 					  //displayInfo.setText(f);
 					 
 			   }
@@ -204,5 +202,7 @@ public class Dealership extends JFrame {
 			
 			
 		
-}
+
 }	
+}
+
