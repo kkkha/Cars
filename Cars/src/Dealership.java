@@ -21,8 +21,8 @@ public class Dealership extends JFrame {
  private JLabel displayResults;
  private CarArray carlist1;
  private CarArray results;
- 
- private Car car2,car3,car4,car5,car6,car8,car9,car10,car11,car12,car13,car14,car15;
+ JTextArea textarea;
+ Car car2,car3,car4,car5,car6,car8,car9,car10,car11,car12,car13,car14,car15;
  public Dealership()
  {
 	 setTitle("Car DealerShip");
@@ -89,21 +89,29 @@ public class Dealership extends JFrame {
 	viewCars.setBackground(Color.BLUE);
 	viewCars.addActionListener(new viewCarsListener());
 	
-	displayInfo = new JLabel();          //panel to displayCars
+	displayInfo = new JPanel();        //panel to displayCars
 	displayInfo.setOpaque(true);
 	displayInfo.setForeground(Color.BLUE);
 	displayInfo.setBackground(Color.WHITE);
-
+	displayInfo.setLayout(null);
 	//displayInfoPanel just prints text for now 
-	displayText = new JLabel("");
-	//displayInfo.add(displayText);
+	displayText = new JLabel("Displaying Results");
+	displayText.setBounds (200, 0,200,50);
+	textarea=new JTextArea("");
+	textarea.setBackground(Color.GRAY);
+	textarea.setBounds(100, 100, 300, 300);
+	displayInfo.add(textarea);
+	
+	
+	displayResults = new JLabel("H");
+	
 	
 	//display results
-	displayResults = new JLabel("H");
-	displayResults.setOpaque(true);
+	/*displayResults.setOpaque(true);
 	displayResults.setBackground(Color.gray);
-	panel.add(displayResults);
+	panel.add(displayResults);*/
 //	displayResults.setLocation(400,400);
+	
 	
 	
 	//panel
@@ -121,7 +129,7 @@ public class Dealership extends JFrame {
 	searchBox.setBounds(20,100, 150,30);
 	viewCars.setBounds(180,100, 120,30);
 	displayInfo.setBounds(100,150, 500,400);
-	//displayResults.setBounds(100,250, 400,300);
+	//displayResults.setBounds(300,300, 300,300);
 
 	
 	
@@ -153,14 +161,24 @@ public class Dealership extends JFrame {
 		String input;
 		public void actionPerformed(ActionEvent event) {
 			
+			
+			
 			JButton jb = (JButton) event.getSource();
+			
 			if(jb.equals(viewCars))
 			{
 			   input = searchBox.getText();
 			   if(msg.getText().equals("Searching By Color"))
-			   {   String f="";
-				  results = carlist1.SearchBycolor(input);
-				 
+			   {  
+				   results = carlist1.SearchBycolor(input);
+					  String f="";
+					  for(int i=0;i<results.size();i++) {
+					f=f+ results.get(i).toString();
+					
+					  }
+					 textarea.append(f);
+					  //displayInfo.setText(f);
+					 
 			   }
 			  else if(msg.getText().equals("Searching By Model"))
 			   {   
