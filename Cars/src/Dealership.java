@@ -174,11 +174,7 @@ public class Dealership extends JFrame {
 				   textarea.setText(""); //must clear textarea
 				  results = carlist1.SearchBycolor(input);
 				  String f=" ";
-				  for(int i=0;i<results.size();i++) {
-				f=f+ results.get(i).toString();
-				
-				  }
-				 textarea.append(f);
+				 textarea.append(results.toString());
 				 
 				 results.clearList();	 
 					  //displayInfo.setText(f);
