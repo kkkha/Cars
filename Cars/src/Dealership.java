@@ -15,7 +15,7 @@ public class Dealership extends JFrame {
  private JButton modelS;
  private JTextField searchBox;
  private JButton viewCars;
- private JLabel displayInfo;
+ private JPanel displayInfo;
  private JLabel displayText;
  private JLabel displayResults;
  private CarArray carlist1;
@@ -179,7 +179,7 @@ public class Dealership extends JFrame {
 				  }
 				 textarea.append(f);
 				 results.clearList();
-				  =======
+				 
 				   results = carlist1.SearchBycolor(input);
 					  String f="";
 					  for(int i=0;i<results.size();i++) {
