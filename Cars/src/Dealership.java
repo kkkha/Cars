@@ -9,7 +9,7 @@ public class Dealership extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = -3923837121202197985L;
-//tr
+//t
  private JLabel head;	
  private JLabel msg;
  private JButton colorS;
