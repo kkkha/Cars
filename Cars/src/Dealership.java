@@ -20,6 +20,7 @@ public class Dealership extends JFrame {
  private JLabel displayResults;
  private CarArray carlist1;
  private CarArray results;
+ JPanel panel = new JPanel();            
  JTextArea textarea;
  Car car2,car3,car4,car5,car6,car8,car9,car10,car11,car12,car13,car14,car15;
  public Dealership()
@@ -40,7 +41,7 @@ public class Dealership extends JFrame {
 	head.setFont(new Font("Calibri", Font.BOLD, 24));
 	this.add(head,BorderLayout.NORTH);
 	
-	JPanel panel = new JPanel();               //Center Panel for search boxes
+	   //Center Panel for search boxes
 	add(panel, BorderLayout.CENTER);
 	panel.setLayout(null);
 	JPanel panelRight = new JPanel();  
@@ -79,14 +80,14 @@ public class Dealership extends JFrame {
 	modelS.setBackground(Color.getColor("lightgreen"));
 	modelS.addActionListener(new ButtonListener());
 	
-	searchBox = new JTextField("Enter Info");     //User will enter info
+	/*searchBox = new JTextField("Enter Info");     //User will enter info
 	
 	viewCars = new JButton("View Cars");        //Click after entering info
 	viewCars.setOpaque(true);
 	viewCars.setBorderPainted(false);
 	viewCars.setForeground(Color.BLACK);
 	viewCars.setBackground(Color.BLUE);
-	viewCars.addActionListener(new viewCarsListener());
+	viewCars.addActionListener(new viewCarsListener());*/
 	
 	displayInfo = new JPanel();        //panel to displayCars
 	displayInfo.setOpaque(true);
@@ -118,16 +119,16 @@ public class Dealership extends JFrame {
 	panel.add(colorS);
 	panel.add(modelS);
 	panel.add(msg);
-	panel.add(searchBox);
-	panel.add(viewCars);
+	//panel.add(searchBox);
+	//panel.add(viewCars);
 	panel.add(displayInfo);
 
 	
 	colorS.setBounds(50,20,200,50);
 	modelS.setBounds(300,20,200,50);
 	msg.setBounds(20,20,150,150);
-	searchBox.setBounds(20,100, 150,30);
-	viewCars.setBounds(180,100, 120,30);
+	//searchBox.setBounds(20,100, 150,30);
+	//viewCars.setBounds(180,100, 120,30);
 	displayInfo.setBounds(100,150, 500,400);
 	//displayResults.setBounds(300,300, 300,300);
 
@@ -145,11 +146,37 @@ public class Dealership extends JFrame {
 			JButton jb = (JButton) event.getSource();
 			if(jb.equals(colorS))
 			{	
+				searchBox = new JTextField("Enter Info");     //User will enter info
+				
+				viewCars = new JButton("View Cars");        //Click after entering info
+				viewCars.setOpaque(true);
+				viewCars.setBorderPainted(false);
+				viewCars.setForeground(Color.BLACK);
+				viewCars.setBackground(Color.BLUE);
+				viewCars.addActionListener(new viewCarsListener());
+				searchBox.setBounds(20,100, 150,30);
+				viewCars.setBounds(180,100, 120,30);
+				panel.add(searchBox);
+				panel.add(viewCars);
+				
 				msg.setText("Searching By Color");
 				
 			}
 			else if (jb.equals(modelS))
 			{	
+				searchBox = new JTextField("Enter Info");     //User will enter info
+				panel.add(viewCars);
+				
+				viewCars = new JButton("View Cars");        //Click after entering info
+				viewCars.setOpaque(true);
+				viewCars.setBorderPainted(false);
+				viewCars.setForeground(Color.BLACK);
+				viewCars.setBackground(Color.BLUE);
+				viewCars.addActionListener(new viewCarsListener());
+				searchBox.setBounds(20,100, 150,30);
+				viewCars.setBounds(180,100, 120,30);
+				panel.add(searchBox);
+				
 				msg.setText("Searching By Model");
 			}
 		}
