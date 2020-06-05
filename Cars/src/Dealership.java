@@ -16,7 +16,7 @@ public class Dealership extends JFrame {
  private JButton modelS;
  private JTextField searchBox;
  private JButton viewCars;
- private JLabel displayInfo;
+ private JPanel displayInfo;
  private JLabel displayText;
  private JLabel displayResults;
  private CarArray carlist1;
@@ -100,8 +100,9 @@ public class Dealership extends JFrame {
 	textarea=new JTextArea("");
 	textarea.setBackground(Color.GRAY);
 	textarea.setBounds(100, 100, 300, 300);
+	textarea.setEditable(false);
 	displayInfo.add(textarea);
-	
+	displayInfo.add(displayText);
 	
 	displayResults = new JLabel("H");
 	
@@ -180,13 +181,7 @@ public class Dealership extends JFrame {
 				  }
 				 textarea.append(f);
 				 results.clearList();
-				  =======
-				   results = carlist1.SearchBycolor(input);
-					  String f="";
-					  for(int i=0;i<results.size();i++) {
-					f=f+ results.get(i).toString();
-					
-					  }
+			
 					 textarea.append(f);
 					  //displayInfo.setText(f);
 					 
@@ -200,6 +195,7 @@ public class Dealership extends JFrame {
 				 textarea.append(car.toString());
 				 results.clearList();
 			   }
+			   
 			
 		      }
 		
