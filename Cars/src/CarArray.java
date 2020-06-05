@@ -13,7 +13,10 @@ public class CarArray {
 		carslist=new LinkedList<Car>();
 	}
 	
-	
+	public void clearList()
+	{
+		carslist.clear();
+	}
 	
 	public void addCar(Car car) {
 		if(car==null) {

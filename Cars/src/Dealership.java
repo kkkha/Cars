@@ -170,6 +170,17 @@ public class Dealership extends JFrame {
 			   input = searchBox.getText();
 			   if(msg.getText().equals("Searching By Color"))
 			   {  
+
+				   textarea.setText(""); //must clear textarea
+				  results = carlist1.SearchBycolor(input);
+				  String f=" ";
+				  for(int i=0;i<results.size();i++) {
+				f=f+ results.get(i).toString();
+				
+				  }
+				 textarea.append(f);
+				 results.clearList();
+				  =======
 				   results = carlist1.SearchBycolor(input);
 					  String f="";
 					  for(int i=0;i<results.size();i++) {
@@ -182,20 +193,15 @@ public class Dealership extends JFrame {
 			   }
 			  else if(msg.getText().equals("Searching By Model"))
 			   {   
+				  textarea.setText("");  //must clear textarea
 				  Car car= carlist1.SearchByModel(Integer.parseInt(input));
 				  results.addCar(car);
+			   
+				 textarea.append(car.toString());
+				 results.clearList();
 			   }
-			   String text = "";
-			   LinkedList<Car> list = carlist1.returnList();
-			   for(int i=0;i<list.size();i++)
-			   {
-				   text= text+list.get(i)+"\n";
-			   }
-			  
-			   displayText.setText("Showing results for: "+input);
-			}
 			
-		}
+		      }
 		
 		
 	}
@@ -203,3 +209,4 @@ public class Dealership extends JFrame {
 			
 		
 }
+}	
