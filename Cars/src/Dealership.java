@@ -180,9 +180,8 @@ public class Dealership extends JFrame {
 				
 				  }
 				 textarea.append(f);
-				 results.clearList();
-			
-					 textarea.append(f);
+				 
+				 results.clearList();	 
 					  //displayInfo.setText(f);
 					 
 			   }
