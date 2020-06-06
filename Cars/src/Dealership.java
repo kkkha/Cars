@@ -98,13 +98,18 @@ public class Dealership extends JFrame {
 	displayText = new JLabel("Displaying Results");
 	displayText.setBounds (200, 0,200,50);
 	textarea=new JTextArea("");
-	textarea.setBackground(Color.GRAY);
-	textarea.setBounds(100, 100, 300, 300);
+	textarea.setBackground(Color.white);
+	textarea.setBounds(0, 80, 500, 400);
 	textarea.setEditable(false);
 	displayInfo.add(textarea);
 	displayInfo.add(displayText);
 	
 	displayResults = new JLabel("H");
+	
+//	JSeparator s = new JSeparator(SwingConstants.HORIZONTAL);
+//	s.setBackground(Color.black);
+
+//	textarea.add(s);
 	
 	
 	//display results
@@ -145,39 +150,41 @@ public class Dealership extends JFrame {
 			
 			JButton jb = (JButton) event.getSource();
 			if(jb.equals(colorS))
-			{	
+			{	msg.setText("Searching By Color");
+			
 				searchBox = new JTextField("Enter Info");     //User will enter info
-				
+				panel.add(searchBox);
 				viewCars = new JButton("View Cars");        //Click after entering info
 				viewCars.setOpaque(true);
 				viewCars.setBorderPainted(false);
 				viewCars.setForeground(Color.BLACK);
 				viewCars.setBackground(Color.BLUE);
 				viewCars.addActionListener(new viewCarsListener());
+				panel.add(viewCars);
 				searchBox.setBounds(20,100, 150,30);
 				viewCars.setBounds(180,100, 120,30);
-				panel.add(searchBox);
-				panel.add(viewCars);
+			
 				
-				msg.setText("Searching By Color");
+				
 				
 			}
 			else if (jb.equals(modelS))
-			{	
+			{	msg.setText("Searching By Model");
+			
 				searchBox = new JTextField("Enter Info");     //User will enter info
-				panel.add(viewCars);
-				
+				panel.add(searchBox);
 				viewCars = new JButton("View Cars");        //Click after entering info
 				viewCars.setOpaque(true);
 				viewCars.setBorderPainted(false);
 				viewCars.setForeground(Color.BLACK);
 				viewCars.setBackground(Color.BLUE);
 				viewCars.addActionListener(new viewCarsListener());
+				panel.add(viewCars);
 				searchBox.setBounds(20,100, 150,30);
 				viewCars.setBounds(180,100, 120,30);
-				panel.add(searchBox);
 				
-				msg.setText("Searching By Model");
+				
+				
 			}
 		}
 		

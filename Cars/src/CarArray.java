@@ -157,7 +157,7 @@ public class CarArray {
 
 	@Override
 	public String toString() {
-		String s="";
+		String s="Car Name"+"       "+ "Price" +"       "+" Year"+"       "+"Modelno"+"       "+"Color";
 		for(int i=0;i<carslist.size();i++) {
 			 s=s+carslist.get(i).toString()+"\n\n";
 		}

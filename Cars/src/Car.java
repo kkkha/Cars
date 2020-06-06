@@ -5,9 +5,12 @@ public class Car {
 	
 	@Override
 	public String toString() {
-		return "Car name = " + name + "     Price = " + price + "\n"
-			+  "Year = " + year +     "        Modelno =" + Modelno + "\n"
-			+ "Color = " + color+"\n\n" ;
+//		return " Car name: " + name + " Price: " + price 
+//			+  " Year:" + year + " Modelno:" + Modelno  
+//			+ " Color:" + color+"\n"+"______________________________________________________________________" ;
+		
+		return "\n"+name+"       "+price +"       "+ year+"       "+Modelno+"       " + color+
+		"\n"+"______________________________________________________________________" ;
 	}
 
 
